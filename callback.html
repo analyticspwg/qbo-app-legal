@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PWI Claude Writer authorization</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #1a1a1a; background: #fff; }
+  code, textarea { font-family: ui-monospace, Menlo, monospace; font-size: 0.9rem; }
+  textarea { width: 100%; box-sizing: border-box; padding: 8px; }
+  .meta { color: #666; }
+</style>
+</head>
+<body>
+<h1>Authorization received</h1>
+<p>Copy the full address below and paste it into the PWI Claude Writer prompt on your workstation. The code is single-use and expires in a few minutes. It is not sent anywhere from this page.</p>
+<textarea id="u" rows="5" readonly></textarea>
+<p><button id="b" type="button">Copy</button> <span id="s"></span></p>
+<script>
+  var u = document.getElementById("u");
+  u.value = window.location.href;
+  document.getElementById("b").onclick = function () {
+    u.select();
+    try { navigator.clipboard.writeText(u.value); } catch (e) { document.execCommand("copy"); }
+    document.getElementById("s").textContent = "Copied.";
+  };
+</script>
+<p class="meta">PWI Claude Writer &middot; Pearl West Investments Ltd. &middot; <a href="eula.html">EULA</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="mailto:analytics@pearlwestgroup.com">analytics@pearlwestgroup.com</a></p>
+</body>
+</html>
